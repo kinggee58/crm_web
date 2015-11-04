@@ -1,0 +1,21 @@
+* {
+	background-color:#00FFFF;
+	font-family: "Times New Roman";
+	margin: 20px;
+	box-sizing: border-box;
+
+}
+
+h2 {
+	color:#FF00FF;
+}
+
+.creator {
+	color:#990000;
+	font-family:cursive;
+	font-size:24px;
+}
+
+#email < .creator {
+	color:#FF0000;
+}

@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>First Website</title>
 </head>
 <body>
 	
-
-	<header>
-		<h1></h1>
-		</header>
-			<p>
-			
-			<nav>
+<nav>
 				<a href="/">Home</a>
 				<a href="/contacts">All Contacts</a>
 				<a href="/contacts/new">Add New Contact</a>
 			</nav>
-		</p>
+
+<img src="http://radio.humber.ca/assets/images/headlines/movies1.png">
+
+	<header>
+		
+		
+		<h1>My First Website!</h1>
+		</header>
+			<p>
+			</p>
+			
+			
+	
 		<!-- This is where I want the content to go -->
 		<%= yield %>
 		<!-- This is the end of the content -->
 
 	<footer>
-		<h2></h2>
+		<h2 class="creator">Creator
+		</h2>
+		<ol>
+					<ul> 
+						<li><strong>Jon Greenspan</strong></li>
+						<li class="creator" id="email"><strong>jgreenspan10@gmail.com</strong></li>
+						<li><strong>Student</strong></li>
+						<li><em>416 902 9098</em></li>
+					</ul>
+				</ol>
 		</footer>
 	</body>
 
