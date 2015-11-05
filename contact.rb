@@ -4,15 +4,14 @@ class Contact
 	attr_accessor :first_name, :last_name, :email, :notes
 
 	@@contacts = []
-	@@id = 1
-
+	@@id = 1000
+	
 	def initialize(first_name, last_name, options ={})
-		@id = @@id
 		@first_name = first_name
 		@last_name = last_name
 		@email = options[:email]
 		@notes = options[:notes]
-
+		@id = @@id
 		@@id += 1
 
 	end
@@ -30,15 +29,7 @@ class Contact
 		puts "#{first_name}, #{last_name}, #{email}, #{notes}"
 	end
 
-	def self.choose_contact(id)
-		@@contacts.each do |contact|
-			if id == contact.id
-				return contact
-			end
-		end
+	def self.find(num_id)
+		@@contacts.find {|contact| contact.id == num_id}
 	end
 end
-
-jon = Contact.new("Jon", "Greenspan", email: "jgreenspan10@gmail.com", notes: "dude")
-
-jon.contact_info
