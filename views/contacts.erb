@@ -3,5 +3,7 @@
 <ul>
 <% Contact.all.each do |contact| %>
 	<li><%= contact.first_name %> <%= contact.last_name %></li>
+	<a href="/contacts/<%= contact.id %>">
+		<input type="button" name="Show Contact" value="Show">
 	<% end %>
 	</ul>
