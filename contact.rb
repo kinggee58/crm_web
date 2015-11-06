@@ -32,4 +32,8 @@ class Contact
 	def self.find(num_id)
 		@@contacts.find {|contact| contact.id == num_id}
 	end
+
+	def remove
+		@@contacts.delete_if { |contact| contact.id ==self.id}
+	end
 end
