@@ -2,6 +2,8 @@ require_relative 'contact'
 require 'sinatra'
 
 Contact.create("Johnny", "Bravo",email: "johnny@bitmakerlabs.com",notes: "Rockstar")
+Contact.create("Rose", "Diker", email: "rose@gbc.com")
+Contact.create("Mike", "Greenspan", email: "mike@uwo.ca", notes: "brother")
 
 get '/' do
 	@crm_app_name = "My CRM"
@@ -26,4 +28,13 @@ end
 get "/contacts/1000" do 
 	@contact = Contact.find(1000)
 	erb :show_contact
+end
+
+get "/contacts/:id" do
+	@contact = Contact.find(params[:id].to_i)
+	if @contact
+		erb :show_contact
+	else
+		raise Sinatra::NotFound
+	end
 end
