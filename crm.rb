@@ -1,7 +1,8 @@
 require_relative 'contact'
 require 'sinatra'
 
-Contact.create("J", "G", email: "j@g.com", notes: "me")
+
+Contact.create("J", "G", "j@g.com", "me")
 
 get '/' do
 	@crm_app_name = "My CRM"
