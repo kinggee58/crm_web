@@ -1,17 +1,16 @@
 require 'sinatra'
 require 'data_mapper'
-DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 
+DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 
 class Contact
 	include DataMapper::Resource
-	attr_accessor :id, :first_name, :last_name, :email, :notes
 	
 	property :id, Serial
 	property :first_name, String
 	property :last_name, String
 	property :email, String
-	property :notes, Text
+	property :notes, String
 end
 	DataMapper.finalize
 	DataMapper.auto_upgrade!
@@ -23,6 +22,7 @@ get '/' do
 end
 
 get '/contacts' do
+	@contacts = Contact.all
 	erb :contacts
 end
 
@@ -32,7 +32,12 @@ get '/contacts/new' do
 end
 
 post '/contacts' do
-	Contact.create(params[:first_name], params[:last_name], params[:email], params[:notes])
+	contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :notes => params[:notes]
+ 	)
 	redirect to ('/contacts')
 end
 
@@ -42,7 +47,7 @@ get "/contacts/1000" do
 end
 
 get "/contacts/:id" do
-	@contact = Contact.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		erb :show_contact
 	else
